@@ -1,6 +1,6 @@
 {% extends "theme.html" %}
 {% block survey_list %} 
-<table class="table is-fullwidth is-hoverable">
+<table class="table is-fullwidth is-hoverable ">
         <thead>
             <tr>
             <th> 编号</th>
@@ -12,20 +12,18 @@
             <th>参与问卷</th>								
             </tr>
         </thead>
-        {% for surveyDCT in surveys %}
-            {% for x,y in surveyDCT_all %}
+        {% for survey in surveys.values %}            
                     <tbody>
                         <tr>
-                        <th>{{y_id}}</th>
-                        <td>关于饮料调查</td>								
-                        <td>2019-10-08</td>
-                        <td>230</td>
-                        <td>CN</td>
+                        <th>{{survey.id}}</th>
+                        <td>{{survey.title}}</td>								
+                        <td>{{survey.liveTime}}</td>
+                        <td>{{survey.score}}</td>
+                        <td>{{survey.countrID}}</td>
                         <td>PC/M</td>
-                        <td>点击参与</td>						
+                        <td><a href="{{survey.link}}">点击参与</a></td>						
                         </tr>					  					
-                    </tbody>
-            {% endfor %}        
+                    </tbody>                   
         {% endfor %}         
     </table>         
 {% endblock survey_list %}
